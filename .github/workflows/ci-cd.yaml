@@ -34,7 +34,7 @@ steps:
       mkdir -p $HOME/.kube
       echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
 
-  - name: Deploy to Kubernetes
+  - name: Deploy
     run: |
       kubectl set image deployment/tracing-app tracing-app=${{ secrets.DOCKER_USERNAME }}/tracing-app:${{ github.sha }}
       kubectl rollout status deployment/tracing-app

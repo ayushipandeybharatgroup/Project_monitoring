@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello CI/CD + HA 🚀"
+    return "return "CI/CD working 🚀""
 
 @app.route("/slow")
 def slow():
