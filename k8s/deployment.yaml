@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracing-app
+spec:
+  replicas: 3   # HA
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: tracing-app
+  template:
+    metadata:
+      labels:
+        app: tracing-app
+    spec:
+      containers:
+      - name: tracing-app
+        image: ayudevops/tracing-app:latest
+        ports:
+        - containerPort: 5000
